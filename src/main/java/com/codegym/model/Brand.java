@@ -11,15 +11,15 @@ public class Brand {
     private Long id;
     private String name;
 
-    @OneToMany(targetEntity = Product.class)
-    private List<Product> products;
+    @OneToMany(targetEntity = Blog.class)
+    private List<Blog> blogs;
 
     public Brand() {
     }
 
-    public Brand(String name, List<Product> products) {
+    public Brand(String name, List<Blog> products) {
         this.name = name;
-        this.products = products;
+        this.blogs = products;
     }
 
     public Long getId() {
@@ -38,11 +38,11 @@ public class Brand {
         this.name = name;
     }
 
-    public List<Product> getProducts() {
-        return products;
+    public List<Blog> getProducts() {
+        return blogs;
     }
 
-    public void setProducts(List<Product> products) {
-        this.products = products;
+    public void setProducts(List<Blog> products) {
+        this.blogs = products;
     }
 }

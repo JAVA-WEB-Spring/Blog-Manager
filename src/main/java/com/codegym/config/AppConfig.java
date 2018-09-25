@@ -2,6 +2,9 @@ package com.codegym.config;
 
 import com.codegym.formatter.BrandFormatter;
 import com.codegym.service.BrandService;
+import com.codegym.service.BlogService;
+import com.codegym.service.impl.BrandServiceImpl;
+import com.codegym.service.impl.BlogServiceImpl;
 import com.codegym.ultils.StorageUltils;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -59,6 +62,16 @@ public class AppConfig extends WebMvcConfigurerAdapter implements ApplicationCon
         this.applicationContext = applicationContext;
     }
 
+    @Bean
+    public BrandService brandService() {
+        return new BrandServiceImpl();
+    }
+
+    @Bean
+    public BlogService blogService() {
+        return new BlogServiceImpl();
+    }
+
     //Thymeleaf Configuration
     @Bean
     public SpringResourceTemplateResolver templateResolver() {
@@ -96,7 +109,7 @@ public class AppConfig extends WebMvcConfigurerAdapter implements ApplicationCon
     public LocalContainerEntityManagerFactoryBean entityManagerFactory() {
         LocalContainerEntityManagerFactoryBean em = new LocalContainerEntityManagerFactoryBean();
         em.setDataSource(dataSource());
-        em.setPackagesToScan("com.codegym.phone.model");
+        em.setPackagesToScan("com.codegym.model");
 
         JpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
         em.setJpaVendorAdapter(vendorAdapter);
@@ -127,15 +140,17 @@ public class AppConfig extends WebMvcConfigurerAdapter implements ApplicationCon
         properties.setProperty("hibernate.dialect", "org.hibernate.dialect.MySQL5Dialect");
         return properties;
     }
-    // Bean de ap bootstrap offline and upload anh
-//    @Override
-//    public void addResourceHandlers(ResourceHandlerRegistry registry) {
-//        registry
-//                .addResourceHandler("/resource/**").addResourceLocations("/resource/");
-//        registry
-//                .addResourceHandler("/features/**")
-//                .addResourceLocations("file:" + StorageUltils.FEATURE_LOCATION + "/");
-//    }
+
+    // Uploadfile and boostrap
+    @Override
+    public void addResourceHandlers(ResourceHandlerRegistry registry) {
+        registry
+                .addResourceHandler("/resource/**")
+                .addResourceLocations("/resource/");
+        registry
+                .addResourceHandler("/features/**")
+                .addResourceLocations("file:" + StorageUltils.FEATURE_LOCATION + "/");
+    }
 
     @Bean
     public CommonsMultipartResolver multipartResolver() {
@@ -143,9 +158,10 @@ public class AppConfig extends WebMvcConfigurerAdapter implements ApplicationCon
         multipartResolver.setMaxUploadSizePerFile(10000000);
         return multipartResolver;
     }
-    ///// Bean nay de lam viec formatter quan he 1 nhieu
-//    @Override
-//    public void addFormatters(FormatterRegistry registry) {
-//        registry.addFormatter(new BrandFormatter(applicationContext.getBean(BrandService.class)));
-//    }
+    // Formatter
+    @Override
+    public void addFormatters(FormatterRegistry registry) {
+        registry
+                .addFormatter(new BrandFormatter(applicationContext.getBean(BrandService.class)));
+    }
 }

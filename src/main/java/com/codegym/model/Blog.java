@@ -3,8 +3,8 @@ package com.codegym.model;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "product")
-public class Product {
+@Table(name = "blog")
+public class Blog {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
@@ -16,10 +16,10 @@ public class Product {
     @JoinColumn(name = "brand_id")
     private Brand brand;
 
-    public Product() {
+    public Blog() {
     }
 
-    public Product(String title, String content, String image, Brand brand) {
+    public Blog(String title, String content, String image, Brand brand) {
         this.title = title;
         this.content = content;
         this.image = image;

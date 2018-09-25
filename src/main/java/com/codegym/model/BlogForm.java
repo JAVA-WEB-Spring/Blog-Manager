@@ -2,7 +2,7 @@ package com.codegym.model;
 
 import org.springframework.web.multipart.MultipartFile;
 
-public class ProductForm {
+public class BlogForm {
     private Long id;
     private String title;
     private String content;
@@ -10,7 +10,7 @@ public class ProductForm {
     private String imageUrl;
     private MultipartFile image;
 
-    public ProductForm() {
+    public BlogForm() {
     }
 
     public Long getId() {
@@ -61,7 +61,7 @@ public class ProductForm {
         this.image = image;
     }
 
-    public ProductForm(Long id, String title, String content, Brand brand, String imageUrl, MultipartFile image) {
+    public BlogForm(Long id, String title, String content, Brand brand, String imageUrl, MultipartFile image) {
 
         this.id = id;
         this.title = title;
