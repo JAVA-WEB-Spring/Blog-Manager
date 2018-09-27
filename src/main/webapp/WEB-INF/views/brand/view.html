@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>View</title>
+</head>
+<body>
+<a href="/products">Back</a>
+<h1>Detail of brand: <span th:text="${brand.name}"></span></h1>
+<table border="1">
+    <tr>
+       <th>Tittle</th>
+       <th>Content</th>
+       <th>Image</th>
+    </tr>
+    <th:block th:each="p:${products}">
+        <tr>
+        <td th:text="${p.title}"></td>
+        <td th:text="${p.content}"></td>
+        <td>
+            <img th:src="@{/features/__${p.image}__}" height="150" width="150">
+        </td>
+        </tr>
+    </th:block>
+</table>
+</body>
+</html>

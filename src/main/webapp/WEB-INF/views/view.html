@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+
+    <!--- basic page needs
+    ================================================== -->
+    <meta charset="utf-8">
+    <title>Blog - Personal</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- mobile specific metas
+    ================================================== -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <!-- CSS
+    ================================================== -->
+    <link rel="stylesheet" href="../../wordsmith/css/base.css">
+    <link rel="stylesheet" href="../../wordsmith/css/vendor.css">
+    <link rel="stylesheet" href="../../wordsmith/css/main.css">
+
+    <!-- script
+    ================================================== -->
+    <script src="../../wordsmith/js/modernizr.js"></script>
+
+    <!-- favicons
+    ================================================== -->
+    <link rel="shortcut icon" href="../../wordsmith/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="../../wordsmith/favicon.ico" type="image/x-icon">
+
+</head>
+
+<body id="top">
+
+<!-- preloader
+    ================================================== -->
+    <div id="preloader">
+        <div id="loader" class="dots-fade">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+
+
+    <!-- header
+    ================================================== -->
+    <header class="s-header header">
+
+        <div class="header__logo">
+            <a class="logo" th:href="@{/}">
+                <img src="/resource/image/bloglogo.jpg" alt="Homepage">
+            </a>
+        </div> <!-- end header__logo -->
+
+        <a class="header__search-trigger" href="#0"></a>
+        <div class="header__search">
+
+            <!--<form role="search" method="get" class="header__search-form" action="#">-->
+                <!--<label>-->
+                    <!--<span class="hide-content">Search for:</span>-->
+                    <!--<input type="search" class="search-field" placeholder="Type Keywords" value="" name="s" title="Search for:" autocomplete="off">-->
+                <!--</label>-->
+                <!--<input type="submit" class="search-submit" value="Search">-->
+            <!--</form>-->
+
+            <!--<a th:href="@{/}" title="Close Search" class="header__overlay-close">Close</a>-->
+
+        </div>  <!-- end header__search -->
+
+        <!--<a class="header__toggle-menu" href="#0" title="Menu"><span>Menu</span></a>-->
+        <nav class="header__nav-wrap">
+
+            <!--<h2 class="header__nav-heading h6">Navigate to</h2>-->
+
+            <ul class="header__nav">
+                <li><a th:href="@{/} " title="">Home</a></li>
+                <li class="has-children">
+                    <a href="#0" title="">Categories</a>
+                    <ul class="sub-menu">
+                        <li><a href="#">Lifestyle</a></li>
+                        <li><a href="#">Health</a></li>
+                        <li><a href="#">Family</a></li>
+                        <li><a href="#">Management</a></li>
+                        <li><a href="#">Travel</a></li>
+                        <li><a href="#">Work</a></li>
+                    </ul>
+                </li>
+                <li class="has-children">
+                    <a href="#0" title="">Blog</a>
+                    <ul class="sub-menu">
+                        <li><a href="#">Video Post</a></li>
+                        <li><a href="#">Audio Post</a></li>
+                        <li><a href="#">Standard Post</a></li>
+                    </ul>
+                </li>
+                <li><a href="#" title="">Styles</a></li>
+                <li><a href="#" title="">About</a></li>
+                <li class="current"><a href="#" title="">Blog Content</a></li>
+            </ul> <!-- end header__nav -->
+
+            <a href="#0" title="Close Menu" class="header__overlay-close close-mobile-menu">Close</a>
+
+        </nav> <!-- end header__nav-wrap -->
+
+    </header> <!-- s-header -->
+
+
+    <!-- s-content
+    ================================================== -->
+    <section class="s-content s-content--top-padding s-content--narrow">
+
+        <div class="row narrow">
+            <div class="col-full s-content__header">
+                <h1 class="display-1 display-1--with-line-sep">Blog content</h1>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-full s-content__main">
+                <p>
+                <img  th:src="@{/features/__${blog.image}__}" height="2500" width="1000">
+                </p>
+
+                <h2 th:text="${blog.title}"></h2>
+
+                <p th:text="${blog.content}"></p>
+
+            </div> <!-- s-content__main -->
+        </div> <!-- end row -->
+
+    </section> <!-- end s-content -->
+
+
+    <!-- s-extra
+    ================================================== -->
+
+
+
+    <!-- s-footer
+    ================================================== -->
+    <footer class="s-footer">
+
+        <div class="s-footer__main">
+            <div class="row">
+                
+                <div class="col-six tab-full s-footer__about">
+                        
+                    <h4>About Wordsmith</h4>
+
+                    <p>Fugiat quas eveniet voluptatem natus. Placeat error temporibus magnam sunt optio aliquam. Ut ut occaecati placeat at. 
+                    Fuga fugit ea autem. Dignissimos voluptate repellat occaecati minima dignissimos mollitia consequatur.
+                    Sit vel delectus amet officiis repudiandae est voluptatem. Tempora maxime provident nisi et fuga et enim exercitationem ipsam. Culpa error 
+                    temporibus magnam est voluptatem.</p>
+
+                </div> <!-- end s-footer__about -->
+
+                <div class="col-six tab-full s-footer__subscribe">
+                        
+                    <h4>Our Newsletter</h4>
+
+                    <p>Sit vel delectus amet officiis repudiandae est voluptatem. Tempora maxime provident nisi et fuga et enim exercitationem ipsam. Culpa consequatur occaecati.</p>
+
+                    <div class="subscribe-form">
+                        <form id="mc-form" class="group" novalidate="true">
+
+                            <input type="email" value="" name="EMAIL" class="email" id="mc-email" placeholder="Email Address" required="">
+                
+                            <input type="submit" name="subscribe" value="Send">
+                
+                            <label for="mc-email" class="subscribe-message"></label>
+                
+                        </form>
+                    </div>
+
+                </div> <!-- end s-footer__subscribe -->
+
+            </div>
+        </div> <!-- end s-footer__main -->
+
+        <div class="s-footer__bottom">
+            <div class="row">
+
+                <div class="col-six">
+                    <ul class="footer-social">
+                        <li>
+                            <a href="#0"><i class="fab fa-facebook"></i></a>
+                        </li>
+                        <li>
+                            <a href="#0"><i class="fab fa-twitter"></i></a>
+                        </li>
+                        <li>
+                            <a href="#0"><i class="fab fa-instagram"></i></a>
+                        </li>
+                        <li>
+                            <a href="#0"><i class="fab fa-youtube"></i></a>
+                        </li>
+                        <li>
+                            <a href="#0"><i class="fab fa-pinterest"></i></a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="col-six">
+                    <div class="s-footer__copyright">
+                        <span><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+</span>
+                    </div>
+                </div>
+                
+            </div>
+        </div> <!-- end s-footer__bottom -->
+
+        <div class="go-top">
+            <a class="smoothscroll" title="Back to Top" href="#top"></a>
+        </div>
+
+    </footer> <!-- end s-footer -->
+
+
+    <!-- Java Script
+    ================================================== -->
+    <script src="../../wordsmith/js/jquery-3.2.1.min.js"></script>
+    <script src="../../wordsmith/js/plugins.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js"></script>
+    <script src="../../wordsmith/js/main.js"></script>
+
+</body>
+
+</html>
