@@ -148,6 +148,12 @@ public class AppConfig extends WebMvcConfigurerAdapter implements ApplicationCon
                 .addResourceHandler("/resource/**")
                 .addResourceLocations("/resource/");
         registry
+                .addResourceHandler("/marcoTheme/**")
+                .addResourceLocations("/marcoTheme/");
+        registry
+                .addResourceHandler("/wordsmith/**")
+                .addResourceLocations("/wordsmith/");
+        registry
                 .addResourceHandler("/features/**")
                 .addResourceLocations("file:" + StorageUltils.FEATURE_LOCATION + "/");
     }
